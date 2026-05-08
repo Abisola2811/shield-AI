@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.055 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.085 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.6 0.25 280);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.5 0.2 220);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --border: oklch(0.15 0 0);
+  --ring: oklch(0.5 0.2 280);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: oklch(0.055 0 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.085 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.6 0.25 280);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.5 0.2 220);
+  --muted: oklch(0.2 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+  --border: oklch(0.15 0 0);
+  --ring: oklch(0.5 0.2 280);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+@layer utilities {
+  .neon-glow {
+    @apply shadow-lg shadow-purple-500/50;
+  }
+
+  .neon-glow-blue {
+    @apply shadow-lg shadow-blue-500/50;
+  }
+
+  .neon-border {
+    @apply border border-purple-500/30 bg-gradient-to-br from-slate-900/50 to-slate-950;
+  }
+
+  .gradient-text-purple {
+    background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-purple-blue {
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+  }
+
+  .cyber-card {
+    @apply relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800/40 to-slate-900/40 border border-slate-700/50 backdrop-blur-sm;
+  }
+
+  .cyber-card-hover {
+    @apply transition-all duration-300 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20;
+  }
+}
+
